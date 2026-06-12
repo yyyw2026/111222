@@ -1,0 +1,43 @@
+{
+  "name": "111222",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "triggers": {
+    "crons": [
+      "* * * * *"
+    ]
+  },
+  "vars": {
+    "RUNTIME_VERSION": "0.1.0",
+    "WECHAT_DAEMON_ENABLED": "1",
+    "WECHAT_DAEMON_ENABLE_AUTOBRAIN_SSR": "0"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "WECHAT_DAEMON_LONG_POLL_OWNER",
+        "class_name": "WechatDaemonLongPollOwner"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1-wechat-long-poll-owner",
+      "new_sqlite_classes": [
+        "WechatDaemonLongPollOwner"
+      ]
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ai-phone-personal-runtime",
+      "database_id": "fe6c3b8b-a435-4c56-8892-93a16f12cdd0",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
